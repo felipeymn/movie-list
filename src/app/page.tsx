@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="grid gap-16 grid-cols-fluid">
+      <div className="grid grid-cols-fluid gap-16">
         {json.results.map((movie: any) => (
           <MoviePoster
             title={movie.title}

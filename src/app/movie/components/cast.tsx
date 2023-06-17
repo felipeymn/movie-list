@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Cast({ profilePicPath, name }) {
   return (
-    <div className="flex flex-col justify-center items-center gap-2">
-      <div className="h-14 w-14 relative">
+    <div className="flex flex-col items-center justify-center gap-2">
+      <div className="relative h-14 w-14">
         <Image
           src={process.env.IMAGE_URL + profilePicPath}
           fill={true}
