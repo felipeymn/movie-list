@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  .section-title {
+    @apply uppercase font-semibold mb-4 text-zinc-400;
+  }
+}

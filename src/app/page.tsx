@@ -14,8 +14,8 @@ export default async function Home() {
             title={movie.title}
             id={movie.id}
             key={movie.key}
-            poster_path={movie.poster_path}
-            release_date={movie.release_date}
+            posterPath={movie.poster_path}
+            releaseDate={movie.release_date}
           />
         ))}
       </div>

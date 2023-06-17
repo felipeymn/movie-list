@@ -1,4 +1,8 @@
 import Image from "next/image";
+import Cast from "../components/cast";
+import RelatedVideo from "../components/related-video";
+import InfoCard from "../components/info-card";
+import MovieDetailHeader from "../components/header";
 
 async function fetchAndParse(url: string) {
   const data = await fetch(url);
@@ -35,76 +39,59 @@ export default async function MovieDetail({ params }: any) {
 
   return (
     <div className="overflow-x-hidden">
-      <header className="h-56 sm:h-64 md:h-80 lg:h-96 relative">
-        <Image
-          src={process.env.IMAGE_URL + movieData.backdrop_path}
-          fill={true}
-          alt={movieData.title + " Poster"}
-          style={{ objectFit: "cover" }}
+      <MovieDetailHeader
+        movieData={movieData}
+        movieDirectors={movieDirectors}
+      />
+      <section className="relative flex gap-2 mx-4 md:mx-16 xl:mx-64 bottom-14 overflow-x-auto pb-2">
+        <InfoCard
+          title={"Release"}
+          data={new Date(movieData.release_date).toLocaleDateString("en-us", {
+            // weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
         />
-        <div className="-bottom-5 -left-5 -right-5 bg-black bg-opacity-60 absolute h-2/3  blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 pb-8 px-4 w-full">
-          <div className="flex gap-4 mb-1">
-            {movieDirectors.map((director: any) => (
-              <span className="font-semibold text-md lg:text-xl">
-                {director.name}
-              </span>
-            ))}
-          </div>
-          <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold uppercase">
-            {movieData.title}
-          </h1>
-          <div className="gap-2 flex mt-4">
-            {movieData.genres.map((genre: any) => (
-              <span className="text-sm lg:text-base rounded bg-gray-500 border px-1 bg-opacity-40">
-                {genre.name}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="-left-3 -right-3 -bottom-2 bg-black absolute h-3 blur-sm"></div>
-      </header>
-      <section className="mt-8 ml-4 mr-16 flex flex-col gap-10">
+        <InfoCard title={"Runtime"} data={movieData.runtime + " min"} />
+        <InfoCard
+          title={"Budget"}
+          data={new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            notation: "compact",
+            maximumSignificantDigits: 3,
+          }).format(movieData.budget)}
+        />
+        <InfoCard
+          title={"Revenue"}
+          data={new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            notation: "compact",
+            maximumFractionDigits: 1,
+            maximumSignificantDigits: 3,
+          }).format(movieData.revenue)}
+        />
+      </section>
+      <section className="mx-4 md:mx-16 xl:mx-64 flex flex-col gap-10">
         <div>
-          <h3 className="uppercase font-semibold mb-4 text-zinc-400">
-            Description
-          </h3>
+          <h3 className="section-title">Description</h3>
           <p className="text-sm text-zinc-50">{movieData.overview}</p>
         </div>
         <div>
-          <h3 className="uppercase font-semibold mb-4 text-zinc-400">
-            Notable Cast
-          </h3>
+          <h3 className="section-title">Notable Cast</h3>
           <div className="flex gap-3">
             {movieCredits.cast.slice(0, 3).map((actor: any) => (
-              <div className="flex flex-col justify-center items-center gap-2">
-                <div className="h-14 w-14 relative">
-                  <Image
-                    src={process.env.IMAGE_URL + actor.profile_path}
-                    fill={true}
-                    alt={actor.name + " profile picture"}
-                    className="rounded-full object-cover"
-                  />
-                </div>
-                <h4 className="text-sm font-semibold text-zinc-100">
-                  {actor.name}
-                </h4>
-              </div>
+              <Cast name={actor.name} profilePicPath={actor.profile_path} />
             ))}
           </div>
         </div>
         <div>
-          <h3 className="uppercase font-semibold mb-4 text-zinc-400">
-            Related Videos
-          </h3>
+          <h3 className="section-title">Related Videos</h3>
           <div className="flex gap-3 overflow-hidden hover:overflow-x-auto pb-2">
             {relatedVideos.slice(0, 5).map((video: any) => (
-              <iframe
-                src={"https://www.youtube.com/embed/" + video.key}
-                title={video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              <RelatedVideo ytId={video.key} title={video.title} />
             ))}
           </div>
         </div>

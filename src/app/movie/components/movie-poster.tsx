@@ -5,16 +5,16 @@ export default function MoviePoster({
   title,
   id,
   key,
-  release_date,
-  poster_path,
+  releaseDate,
+  posterPath,
 }) {
   return (
     <div>
       <h1>{title}</h1>
-      <p>{release_date}</p>
+      <p>{releaseDate}</p>
       <Link href={`/movie/${id}`}>
         <Image
-          src={process.env.IMAGE_URL + poster_path}
+          src={process.env.IMAGE_URL + posterPath}
           width={800}
           height={800}
           alt={title + " Poster"}
