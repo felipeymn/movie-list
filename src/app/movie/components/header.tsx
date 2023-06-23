@@ -14,7 +14,10 @@ export default function MovieDetailHeader({ movieData, movieDirectors }) {
       <div className="absolute bottom-0 left-0 w-full px-4 pb-16 md:px-16 xl:px-64">
         <div className="mb-1 flex gap-4">
           {movieDirectors.map((director: any) => (
-            <span className="md:text-md text-xs font-semibold lg:text-xl">
+            <span
+              key={director.id}
+              className="md:text-md text-xs font-semibold lg:text-xl"
+            >
               {director.name}
             </span>
           ))}
@@ -24,7 +27,10 @@ export default function MovieDetailHeader({ movieData, movieDirectors }) {
         </h1>
         <div className="mt-4 flex gap-2">
           {movieData.genres.map((genre: any) => (
-            <span className="rounded border bg-gray-500 bg-opacity-60 px-2 py-1 text-xs md:text-sm lg:text-base">
+            <span
+              key={genre.id}
+              className="rounded border bg-gray-500 bg-opacity-60 px-2 py-1 text-xs md:text-sm lg:text-base"
+            >
               {genre.name}
             </span>
           ))}

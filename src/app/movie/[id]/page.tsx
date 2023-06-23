@@ -82,7 +82,11 @@ export default async function MovieDetail({ params }: any) {
           <h3 className="section-title">Notable Cast</h3>
           <div className="flex gap-3">
             {movieCredits.cast.slice(0, 3).map((actor: any) => (
-              <Cast name={actor.name} profilePicPath={actor.profile_path} />
+              <Cast
+                key={actor.id}
+                name={actor.name}
+                profilePicPath={actor.profile_path}
+              />
             ))}
           </div>
         </div>
@@ -90,7 +94,11 @@ export default async function MovieDetail({ params }: any) {
           <h3 className="section-title">Related Videos</h3>
           <div className="flex gap-3 overflow-hidden pb-2 hover:overflow-x-auto">
             {relatedVideos.slice(0, 5).map((video: any) => (
-              <RelatedVideo ytId={video.key} title={video.title} />
+              <RelatedVideo
+                key={video.key}
+                ytId={video.key}
+                title={video.title}
+              />
             ))}
           </div>
         </div>
