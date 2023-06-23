@@ -1,4 +1,4 @@
-export default function RelatedVideo({ ytId, title }) {
+export default function RelatedVideo({ ytId, title }: any) {
   return (
     <iframe
       src={"https://www.youtube.com/embed/" + ytId}

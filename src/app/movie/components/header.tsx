@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function MovieDetailHeader({ movieData, movieDirectors }) {
+export default function MovieDetailHeader({ movieData, movieDirectors }: any) {
   return (
     <header className="relative h-56 sm:h-64 md:h-80 lg:h-96">
       <Image

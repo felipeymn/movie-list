@@ -1,4 +1,4 @@
-export default function InfoCard({ title, data }) {
+export default function InfoCard({ title, data }: any) {
   return (
     <div className="relative w-36 shrink-0 py-8 md:w-48 md:py-12 lg:w-56">
       <h2 className="text-center text-xs font-semibold uppercase text-gray-400 opacity-80 md:absolute md:-left-1 md:translate-y-1/2 md:-rotate-90">

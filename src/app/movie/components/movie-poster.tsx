@@ -7,7 +7,7 @@ export default function MoviePoster({
   key,
   releaseDate,
   posterPath,
-}) {
+}: any) {
   return (
     <div>
       <h1>{title}</h1>

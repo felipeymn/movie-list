@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Cast({ profilePicPath, name }) {
+export default function Cast({ profilePicPath, name }: any) {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
       <div className="relative h-14 w-14">
