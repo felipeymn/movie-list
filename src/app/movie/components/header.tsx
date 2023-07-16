@@ -6,6 +6,8 @@ export default function MovieDetailHeader({ movieData, movieDirectors }: any) {
       <Image
         src={process.env.IMAGE_URL + movieData.backdrop_path}
         fill={true}
+        priority={true}
+        quality={100}
         alt={movieData.title + " Poster"}
         style={{ objectFit: "cover" }}
         className="-z-30"

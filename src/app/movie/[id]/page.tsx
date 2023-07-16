@@ -80,7 +80,7 @@ export default async function MovieDetail({ params }: any) {
         </div>
         <div>
           <h3 className="section-title">Notable Cast</h3>
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             {movieCredits.cast.slice(0, 3).map((actor: any) => (
               <Cast
                 key={actor.id}

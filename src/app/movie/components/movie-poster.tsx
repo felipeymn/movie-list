@@ -10,14 +10,21 @@ export default function MoviePoster({
 }: any) {
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{releaseDate}</p>
+      {/* <h1>{title}</h1>
+      <p>
+        {new Date(releaseDate).toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })}
+      </p>*/}
       <Link href={`/movie/${id}`}>
         <Image
           src={process.env.IMAGE_URL + posterPath}
-          width={800}
-          height={800}
+          width={300}
+          height={300}
           alt={title + " Poster"}
+          className="rounded-md"
         />
       </Link>
     </div>

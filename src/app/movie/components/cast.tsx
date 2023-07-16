@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Cast({ profilePicPath, name }: any) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
+    <div className="flex flex-col items-center justify-between gap-2 w-28 flex-shrink-0">
       <div className="relative h-14 w-14">
         <Image
           src={process.env.IMAGE_URL + profilePicPath}
@@ -11,7 +11,9 @@ export default function Cast({ profilePicPath, name }: any) {
           className="rounded-full object-cover"
         />
       </div>
-      <h4 className="text-sm font-semibold text-zinc-100">{name}</h4>
+      <h4 className="text-sm font-semibold text-zinc-100 text-center text-ellipsis overflow-hidden whitespace-nowrap inline-block w-full">
+        {name}
+      </h4>
     </div>
   );
 }
