@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="mx-32 mt-20">
+      <div className="content-margin">
         <h1 className="font-semibold text-3xl mb-3">Popular</h1>
         <div className="grid grid-cols-fluid gap-16">
           {json.results.map((movie: any) => (

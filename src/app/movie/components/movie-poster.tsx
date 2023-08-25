@@ -18,7 +18,7 @@ export default function MoviePoster({
           day: "numeric",
         })}
       </p>*/}
-      <Link href={`/movie/${id}`}>
+      <Link href={`/movie/${id}`} className="hover:opacity-60">
         <Image
           src={process.env.IMAGE_URL + posterPath}
           width={300}

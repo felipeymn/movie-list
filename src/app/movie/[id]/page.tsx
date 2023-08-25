@@ -42,7 +42,7 @@ export default async function MovieDetail({ params }: any) {
         movieData={movieData}
         movieDirectors={movieDirectors}
       />
-      <section className="relative bottom-8 md:bottom-14 flex gap-2 overflow-x-auto pb-2 content-margin">
+      <section className="relative -top-10 flex gap-2 overflow-x-auto content-margin">
         <InfoCard
           title={"Release"}
           data={new Date(movieData.release_date).toLocaleDateString("en-us", {
@@ -76,7 +76,7 @@ export default async function MovieDetail({ params }: any) {
       <section className="flex flex-col gap-10 content-margin">
         <div>
           <h3 className="section-title">Description</h3>
-          <p className="text-sm text-zinc-50">{movieData.overview}</p>
+          <p className="text-sm text-neutral-300">{movieData.overview}</p>
         </div>
         <div>
           <h3 className="section-title">Notable Cast</h3>

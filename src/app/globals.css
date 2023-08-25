@@ -28,10 +28,11 @@ body {
 
 @layer components {
   .section-title {
-    @apply uppercase font-semibold mb-4 text-zinc-400;
+    @apply uppercase font-semibold mb-4 text-sky-100;
   }
 
   .content-margin {
-    @apply mx-4 md:mx-16 xl:mx-64;
+    /* @apply mx-4 md:mx-16 lg:mx-52 xl:mx-96; */
+    @apply max-w-5xl mx-auto px-12;
   }
 }
