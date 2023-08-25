@@ -30,4 +30,8 @@ body {
   .section-title {
     @apply uppercase font-semibold mb-4 text-zinc-400;
   }
+
+  .content-margin {
+    @apply mx-4 md:mx-16 xl:mx-64;
+  }
 }

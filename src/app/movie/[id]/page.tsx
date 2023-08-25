@@ -42,7 +42,7 @@ export default async function MovieDetail({ params }: any) {
         movieData={movieData}
         movieDirectors={movieDirectors}
       />
-      <section className="relative bottom-14 mx-4 flex gap-2 overflow-x-auto pb-2 md:mx-16 xl:mx-64">
+      <section className="relative bottom-8 md:bottom-14 flex gap-2 overflow-x-auto pb-2 content-margin">
         <InfoCard
           title={"Release"}
           data={new Date(movieData.release_date).toLocaleDateString("en-us", {
@@ -73,14 +73,14 @@ export default async function MovieDetail({ params }: any) {
           }).format(movieData.revenue)}
         />
       </section>
-      <section className="mx-4 flex flex-col gap-10 md:mx-16 xl:mx-64">
+      <section className="flex flex-col gap-10 content-margin">
         <div>
           <h3 className="section-title">Description</h3>
           <p className="text-sm text-zinc-50">{movieData.overview}</p>
         </div>
         <div>
           <h3 className="section-title">Notable Cast</h3>
-          <div className="flex gap-2">
+          <div className="flex gap-4">
             {movieCredits.cast.slice(0, 3).map((actor: any) => (
               <Cast
                 key={actor.id}

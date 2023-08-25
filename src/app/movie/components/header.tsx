@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MovieDetailHeader({ movieData, movieDirectors }: any) {
   return (
-    <header className="relative h-56 sm:h-64 md:h-80 lg:h-96">
+    <header className="relative h-56 sm:h-64 md:h-[30rem] lg:h-[42rem]">
       <Image
         src={process.env.IMAGE_URL + movieData.backdrop_path}
         fill={true}
@@ -27,6 +27,10 @@ export default function MovieDetailHeader({ movieData, movieDirectors }: any) {
         <h1 className="text-xl font-bold uppercase sm:text-2xl md:text-4xl lg:text-5xl">
           {movieData.title}
         </h1>
+        <div className="mt-1 font-semibold">
+          <span className="font-light">⭐ </span>
+          {movieData.vote_average.toFixed(1)}/10
+        </div>
         <div className="mt-4 flex gap-2">
           {movieData.genres.map((genre: any) => (
             <span
