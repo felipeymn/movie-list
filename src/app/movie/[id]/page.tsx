@@ -90,18 +90,6 @@ export default async function MovieDetail({ params }: any) {
             ))}
           </div>
         </div>
-        <div>
-          <h3 className="section-title">Related Videos</h3>
-          <div className="flex gap-3 overflow-hidden pb-2 hover:overflow-x-auto">
-            {relatedVideos.slice(0, 5).map((video: any) => (
-              <RelatedVideo
-                key={video.key}
-                ytId={video.key}
-                title={video.title}
-              />
-            ))}
-          </div>
-        </div>
       </section>
     </div>
   );
