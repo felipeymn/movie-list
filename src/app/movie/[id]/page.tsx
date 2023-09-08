@@ -18,23 +18,24 @@ function filterYoutubeVideoTypes(videos: any, types: Array<string>) {
 export default async function MovieDetail({ params }: any) {
   const movieDataUrl = `${process.env.API_URL}/movie/${params.id}?api_key=${process.env.API_KEY}`;
   const movieCreditsUrl = `${process.env.API_URL}/movie/${params.id}/credits?api_key=${process.env.API_KEY}`;
-  const movieVideosUrl = `${process.env.API_URL}/movie/${params.id}/videos?api_key=${process.env.API_KEY}`;
+  // const movieVideosUrl = `${process.env.API_URL}/movie/${params.id}/videos?api_key=${process.env.API_KEY}`;
 
-  const [movieData, movieCredits, movieVideos] = await Promise.all([
+  // const [movieData, movieCredits, movieVideos] = await Promise.all([
+  const [movieData, movieCredits] = await Promise.all([
     fetchAndParse(movieDataUrl),
     fetchAndParse(movieCreditsUrl),
-    fetchAndParse(movieVideosUrl),
+    // fetchAndParse(movieVideosUrl),
   ]);
 
   const movieDirectors = movieCredits.crew.filter(
     ({ job }: any) => job === "Director"
   );
 
-  const relatedVideos = filterYoutubeVideoTypes(movieVideos.results, [
-    "Trailer",
-    // "Behind the Scenes",
-    "Teaser",
-  ]);
+  // const relatedVideos = filterYoutubeVideoTypes(movieVideos.results, [
+  //   "Trailer",
+  //   // "Behind the Scenes",
+  //   "Teaser",
+  // ]);
 
   return (
     <div className="overflow-x-hidden">
